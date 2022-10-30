@@ -1,22 +1,31 @@
-import java.util.Scanner;
+import java.util.Scanner;;
 
 public class JuegoDeConway {
 
     public static void main(String[] args)  throws InterruptedException {
 
         int [][] matriz = new int [41][41];      // Matriz de juego 40x40
-        
+        int manual = 1; // Elegir modo automatico/manual
+        Scanner teclado = new Scanner(System.in);
 
         inicializarMapa(matriz);
         
-        // Mapas de partida
-
-
-
+        // Mapa de partida
         mapaGiroInfinito(matriz);
 
-        Interfaz.printingOut(matriz);
+        System.out.println("Selecciona modo automático (0) o modo manual (1)");
+        manual = teclado.nextInt();
+        while((manual != 0) && (manual != 1)){
+            System.out.println("Introduce un valor correcto");
+            manual = teclado.nextInt();
+        }
 
+        teclado.close();
+
+        if (manual == 0)
+            Interfaz.printingAuto(matriz);
+        else 
+            Interfaz.printingManual(matriz);
     }
 
     public static void reglas(int[][] matriz) {

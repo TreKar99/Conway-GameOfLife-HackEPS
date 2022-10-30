@@ -46,7 +46,7 @@ public class Interfaz {
             }
         }
 
-        public static void printingOut(int[][] array)  throws InterruptedException {
+        public static void printingAuto(int[][] array)  throws InterruptedException {
             jugar = true;
 
             JFrame ventana = new JFrame("HackEPS - Conway's Game of Life");    // Creamos ventana que incorporará el juego
@@ -73,14 +73,57 @@ public class Interfaz {
             ventana.setVisible(true);
 
             while(true) {       
-                //Printea
+                
+                //Printea el juego
                 while(jugar) {
                     Thread.sleep(50);
                     Graphics graphic = juego.getGraphics();
                     dibujarCelulas(array, graphic);
-                    //Thread.sleep(209);
                     
-                    //continuar();
+                    JuegoDeConway.reglas(array);
+                                 
+                }
+                Thread.sleep(1);  
+                
+            
+            }
+        }
+
+        public static void printingManual(int[][] array)  throws InterruptedException {
+            jugar = true;
+
+            JFrame ventana = new JFrame("HackEPS - Conway's Game of Life");    // Creamos ventana que incorporará el juego
+        
+            ventana.setSize(628,705);                                  //Ponemos las medidas
+            ventana.setLocationRelativeTo(null);                                  // Centramos la ventana
+            ventana.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+            JPanel juego = new JPanel();                                             // Componentes de juego 
+            juego.setPreferredSize(new Dimension(400, 400));
+            JButton button = new JButton("Continua / Para");
+            button.addActionListener(new ActionListener()
+            {
+                public void actionPerformed(ActionEvent e) {
+                    continuar();
+                }
+
+            });
+
+            
+            ventana.add(juego);
+            ventana.add(button, BorderLayout.SOUTH);
+
+            ventana.setVisible(true);
+
+            while(true) {       
+                
+                //Printea el juego
+                while(jugar) {
+                    Thread.sleep(250);
+                    Graphics graphic = juego.getGraphics();
+                    dibujarCelulas(array, graphic);
+                    
+                    continuar();
                     JuegoDeConway.reglas(array);
                                  
                 }
