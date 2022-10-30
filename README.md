@@ -5,8 +5,7 @@ Conway's Game of Life programmed in Java with a GUI, for the HackEPS hackathon.
 The sequence chosen for the game is the following which forms an infinite spiral.
 
 <p align="center">
-![Captura de pantalla_20221030_200432](https://user-images.githubusercontent.com/101529212/198897804-1760876e-7b43-435b-8ff3-aef5aa527cbc.png)
-
+![image](https://user-images.githubusercontent.com/101529212/198897817-9e72f102-a847-4e69-9fe3-390e70805722.png)
 </p>
 
 The demo is as follows: 
